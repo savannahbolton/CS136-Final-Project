@@ -1,5 +1,5 @@
 # CS136-Final-Project
-## Hashed Array Tree: A list data type
+## Hashed Array Tree: A list data type ![cat gif](figs/catgif.gif)
 
 A dynamic array data structure that has an array of particular values with separate allotments of data, called leaves, that are specific to each element in the array. 
 Each leaf is an array, which is pointed to by the parent array, and is the same size as the parent array.
