@@ -16,7 +16,7 @@ public interface List<T>{
 
 	public abstract boolean isEmpty(); 
 
-	public abstract boolean contains(): 
+	public abstract boolean contains(T element): 
 
 	public abstract T get(int index); 
 }
