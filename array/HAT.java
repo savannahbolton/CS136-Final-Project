@@ -4,15 +4,29 @@ import java.util.*
 import java.io.*
 
 public class HAT<T> implements List<T> {
+
+	private static final double GROWTH_FACTOR = 2.0;
+
 	//Instance variables
 	private int size;
-	private ArrayList<ArrayList<String>> parent;
+	private Object[][] parent;
+
+	public HAT(int capacity){
+		parent = new Object[capacity][capacity]; 
+		size = 0; 
+	}
 
 	//Savannah
 	//add an element to both parent and child arrays. If reaches capacity, double the size of the array.
 	@Override
 	public void add(T element){
+		for (int i = 0; i < parent.size(); i++){
+			for (int j = 0; j < parent.get(j).size(); j++){
+				if (parent.get(j) == null){
 
+				}
+			}
+		}
 	}
 
 	//Natalia 
