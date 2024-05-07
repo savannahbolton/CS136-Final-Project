@@ -20,12 +20,30 @@ public class HAT<T> implements List<T> {
 	//add an element to both parent and child arrays. If reaches capacity, double the size of the array.
 	@Override
 	public void add(T element){
+		checkExpand(); 
 		for (int i = 0; i < parent.size(); i++){
-			for (int j = 0; j < parent.get(j).size(); j++){
-				if (parent.get(j) == null){
-
+			for (int j = 0; j < parent.size(); j++){
+				if (parent[i][j] == null){
+					parent[i][j] = element; 
+					size++; 
+					break;
 				}
 			}
+		}
+	}
+
+	// fix this tomorrow lol 
+	private void checkExpand(){
+		if (size == parent.length){
+			int newSize = (int) parent.length * GROWTH_FACTOR; 
+			Object[][] newArray = Object[newSize][newSize]; 
+
+			for (int i = 0; i < newSize; i++){
+				for (int j = 0; j < newSize; j++){
+				newArray[i][j] = parent[i][j]; 
+				}
+			}
+			this.parent = newArray; 
 		}
 	}
 
@@ -40,7 +58,7 @@ public class HAT<T> implements List<T> {
 	//Savannah
 	@Override 
 	public int size(){
-
+		return size; 
 	}
 
 	//returns true if the tree isEmpty
@@ -61,11 +79,11 @@ public class HAT<T> implements List<T> {
 		}
 	}
 
-	//gets the element at a specified index
+	//gets the element at a specified parent and child index
 	//Savannah
 	@Override
 	public T get(int parentIndex, int childIndex){
-
+		return parent[parentIndex][childIndex]; 
 	}
 
 	public static void main(String[] args){
