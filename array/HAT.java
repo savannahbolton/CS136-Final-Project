@@ -66,7 +66,9 @@ public class HAT<T> implements List<T> {
 	//Set element in index if it's empty.
 	@Override
 	public void set(int parentIndex, int childIndex, T element){
-
+		if(!parent.get(parentIndex).get(childIndex)){
+			parent.add(element);
+		}
 	}
 
 	//returns the size of the tree
