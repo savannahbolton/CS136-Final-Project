@@ -10,7 +10,7 @@ import java.io.*;
 public interface List<T>{
 	public abstract void add(T element); 
 
-	public abstract void set(int index, T element); 
+	public abstract void set(int parentIndex, int childIndex, T element); 
 
 	public abstract int size(); 
 
@@ -18,5 +18,5 @@ public interface List<T>{
 
 	public abstract boolean contains(T element): 
 
-	public abstract T get(int index); 
+	public abstract T get(int parentIndex, int childIndex); 
 }
