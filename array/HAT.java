@@ -125,6 +125,10 @@ public class HAT<T> implements List<T> {
 		return parent[parentIndex][childIndex]; 
 	}
 
+	public Object[][] getArray(){
+		return this.parent; 
+	}
+
 	public static void main(String[] args){
 		HAT test = new HAT<Integer>(2); 
 		test.add(0); 
@@ -145,9 +149,6 @@ public class HAT<T> implements List<T> {
 		test.add(16);
 		test.add(17); 
 		test.add(18); 
-
-
 		System.out.println(test); 
 	}
-
 }
