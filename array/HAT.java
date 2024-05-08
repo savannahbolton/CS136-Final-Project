@@ -1,7 +1,7 @@
 package array;
 
-import java.util.*
-import java.io.*
+import java.util.*;
+import java.io.*;
 
 public class HAT<T> implements List<T> {
 
@@ -25,10 +25,22 @@ public class HAT<T> implements List<T> {
 	}
 
 	// default capacity constructor 
-	pulic HAT(){
+	public HAT(){
 		parent = new Object[DEFAULT_INITIAL_CAPACITY][DEFAULT_INITIAL_CAPACITY];
 		parentPosition = 0; 
 		childPosition = 0; 
+	}
+
+	@Override
+	public String toString(){
+		String out = "[";
+		for (int i = 0; i < size; i++){
+			for (int j = 0; j < size; j++){
+				out += parent[i][j] + ", ";
+			}
+		}
+		out += "]";
+		return out; 
 	}
 
 	//Savannah
@@ -36,29 +48,26 @@ public class HAT<T> implements List<T> {
 	@Override
 	public void add(T element){
 		checkExpand(); 
-		for (int i = 0; i < parent.size(); i++){
-			for (int j = 0; j < parent.size(); j++){
-				if (parent[i][j] == null){
-					parent[i][j] = element; 
-					size++; 
-					break;
-				}
-			}
+		if (childPosition > parent.length){
+			childPosition = 0; 
+			parentPosition++; 
+			parent[parentPosition][childPosition] = element; 
 		}
+		parent[parentPosition][childPosition++] = element; 
+		size++; 
 	}
 
-	// fix this tomorrow lol 
 	private void checkExpand(){
-		if (size == parent.length){
-			int newSize = (int) parent.length * GROWTH_FACTOR; 
-			Object[][] newArray = Object[newSize][newSize]; 
+		if (parentPosition == size && childPosition == size){
+			int newSize = (int) (parent.length * GROWTH_FACTOR);
+			Object[][] newParent = new Object[newSize][newSize]; 
 
 			for (int i = 0; i < newSize; i++){
 				for (int j = 0; j < newSize; j++){
-				newArray[i][j] = parent[i][j]; 
+					newParent[i][j] = parent[i][j]; 
 				}
 			}
-			this.parent = newArray; 
+			this.parent = newParent; 
 		}
 	}
 
@@ -66,45 +75,52 @@ public class HAT<T> implements List<T> {
 	//Set element in index if it's empty.
 	@Override
 	public void set(int parentIndex, int childIndex, T element){
-		if(!parent.get(parentIndex).get(childIndex)){
-			parent.add(element);
-		}
+		// if(!parent.get(parentIndex).get(childIndex)){
+		// 	parent.add(element);
+		// }
 	}
 
-	//returns the size of the tree
-	//Savannah
+	// //returns the size of the tree
+	// //Savannah
 	@Override 
 	public int size(){
 		return size; 
 	}
 
-	//returns true if the tree isEmpty
-	//Natalia
+	// //returns true if the tree isEmpty
+	// //Natalia
 	@Override 
 	public boolean isEmpty(){
 		return size() == 0;
 	}
 
-	//returns true if contains element 
-	//Natalia
+	// //returns true if contains element 
+	// //Natalia
 	@Override
 	public boolean contains(T element){
-		for(int i = 0; i < parent.size(); i++){
-			for(int j = 0; i < parent.get(i).size(); j++){
-				return parent.get(i).get(j) == element
-			}		
-		}
+		// for(int i = 0; i < parent.size(); i++){
+		// 	for(int j = 0; i < parent.get(i).size(); j++){
+		// 		return parent.get(i).get(j) == element
+		// 	}		
+		// }
+		return true; 
 	}
 
-	//gets the element at a specified parent and child index
-	//Savannah
+	// //gets the element at a specified parent and child index
+	// //Savannah
 	@Override
-	public T get(int parentIndex, int childIndex){
+	public Object get(int parentIndex, int childIndex){
 		return parent[parentIndex][childIndex]; 
 	}
 
 	public static void main(String[] args){
-
+		HAT test = new HAT<Integer>(2); 
+		System.out.println(test); 
+		test.add(0); 
+		test.add(1);
+		test.add(3); 
+		test.add(4); 
+		System.out.println(test); 
 	}
 
 }
