@@ -37,10 +37,10 @@ public class HAT<T> implements List<T> {
 		String out = "[";
 		for (int i = 0; i < parent.length; i++){
 			for (int j = 0; j < parent.length; j++){
-				if(parent[i][j]==null){
-					out+= "]";
-					return out;
-				}
+				// if(parent[i][j]==null){
+				// 	out+= "]";
+				// 	return out;
+				// }
 				out += parent[i][j] + ", ";
 			}
 		}
@@ -91,9 +91,7 @@ public class HAT<T> implements List<T> {
 	//Natalia 
 	//Set element in index if it's empty.
 	public void set(int parentIndex, int childIndex, T element){
-		// if(!parent.get(parentIndex).get(childIndex)){
-		// 	parent.add(element);
-		// }
+		parent[parentIndex][childIndex] = element;
 	}
 
 	// //returns the size of the tree
@@ -111,12 +109,14 @@ public class HAT<T> implements List<T> {
 	// //returns true if contains element 
 	// //Natalia
 	public boolean contains(T element){
-		// for(int i = 0; i < parent.size(); i++){
-		// 	for(int j = 0; i < parent.get(i).size(); j++){
-		// 		return parent.get(i).get(j) == element
-		// 	}		
-		// }
-		return true; 
+		for(int i = 0; i < parent.length; i++){
+			for(int j = 0; j < parent.length; j++){
+				if(parent[i][j] == element){
+					return true;
+				}
+			}		
+		}
+		return false; 
 	}
 
 	// //gets the element at a specified parent and child index
@@ -127,11 +127,17 @@ public class HAT<T> implements List<T> {
 
 	public static void main(String[] args){
 		HAT test = new HAT<Integer>(2); 
+		System.out.println();
+		System.out.println("HAT with 4 elements and capacity of 2: ");
 		test.add(0); 
 		test.add(1);
 		test.add(3); 
 		test.add(4); 
-		test.add(5); 
+		System.out.println(test);
+		test.add(5);
+		System.out.println();
+		System.out.println("HAT with 5 elements after being resized with a new capacity of 4: ");
+		System.out.println(test); 
 		test.add(6);
 		test.add(7);
 		test.add(8);
@@ -143,11 +149,14 @@ public class HAT<T> implements List<T> {
 		test.add(14);
 		test.add(15);
 		test.add(16);
-		test.add(17); 
-		test.add(18); 
-
-
+		System.out.println();
+		System.out.println("HAT with 16 elements with a capacity of 4: ");
 		System.out.println(test); 
+
+		test.add(17); 
+		System.out.println();
+		System.out.println("HAT with 17 elements after being resized with a new capacity of 8");
+		System.out.println(test);
 	}
 
 }
