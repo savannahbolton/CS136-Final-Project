@@ -62,10 +62,15 @@ public class HAT<T> implements List<T> {
 			int newSize = (int) (parent.length * GROWTH_FACTOR);
 			Object[][] newParent = new Object[newSize][newSize]; 
 
+			int newParentPosition = 0;
+			int newChildPosition = 0;
 			for (int i = 0; i < parent.length; i++){
-                for (int j = 0; j < newParent.length; j++){
-                    Object add = parent[i][j%2]; 
-                    newParent[i][j] = add; 	
+                for (int j = 0; j < parent.length; j++){
+                    newParent[newParentPosition][newChildPosition++] = parent[i][j]; 
+                    if(newChildPosition == newSize){
+                    	newChildPosition = 0;
+                    	newParentPosition++;
+                    }	
                 }
             }
             parent = newParent;
