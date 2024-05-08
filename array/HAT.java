@@ -125,6 +125,10 @@ public class HAT<T> implements List<T> {
 		return parent[parentIndex][childIndex]; 
 	}
 
+	public Object[][] getArray(){
+		return this.parent; 
+	}
+
 	public static void main(String[] args){
 		HAT test = new HAT<Integer>(2); 
 		System.out.println();
@@ -151,12 +155,12 @@ public class HAT<T> implements List<T> {
 		test.add(16);
 		System.out.println();
 		System.out.println("HAT with 16 elements with a capacity of 4: ");
+		test.add(17); 
+		test.add(18); 
 		System.out.println(test); 
-
 		test.add(17); 
 		System.out.println();
 		System.out.println("HAT with 17 elements after being resized with a new capacity of 8");
 		System.out.println(test);
 	}
-
 }
