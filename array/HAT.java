@@ -55,9 +55,14 @@ public class HAT<T> implements List<T> {
 		}
 		parent[parentPosition][childPosition++] = element; 
 		size++; 
+		System.out.println(size); 
 
 	}
 
+	/**
+	 * works when the capacity resizes from two to four, fix so that it works for 
+	 * later resizes 
+	 */ 
 	private void checkExpand(){
 		if (parentPosition == size / 2 && childPosition == size / 2){
 			int newSize = (int) (parent.length * GROWTH_FACTOR);
@@ -69,7 +74,7 @@ public class HAT<T> implements List<T> {
                 for (int j = 0; j < parent.length; j++){
                     if (newChildPosition == newSize){
                     	newChildPosition = 0;
-                    	newParentPosition++;      	
+                    	newParentPosition++; 	
                     }  
                     newParent[newParentPosition][newChildPosition++] = parent[i][j];
                 }
@@ -125,14 +130,15 @@ public class HAT<T> implements List<T> {
 		test.add(6);
 		test.add(7);
 		test.add(8);
-		// test.add(9);
-		// test.add(10);
-		// test.add(11);
-		// test.add(12);
-		// test.add(13);
-		// test.add(14);
-		// test.add(15);
-		// test.add(16);
+		test.add(9);
+		test.add(10);
+		test.add(11);
+		test.add(12);
+		test.add(13);
+		test.add(14);
+		test.add(15);
+		test.add(16);
+		// test.add(17); 
 
 		System.out.println(test); 
 	}
