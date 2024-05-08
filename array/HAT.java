@@ -37,6 +37,10 @@ public class HAT<T> implements List<T> {
 		String out = "[";
 		for (int i = 0; i < parent.length; i++){
 			for (int j = 0; j < parent.length; j++){
+				if(parent[i][j]==null){
+					out+= "]";
+					return out;
+				}
 				out += parent[i][j] + ", ";
 			}
 		}
@@ -55,8 +59,6 @@ public class HAT<T> implements List<T> {
 		}
 		parent[parentPosition][childPosition++] = element; 
 		size++; 
-		System.out.println(size); 
-
 	}
 
 	/**
@@ -64,7 +66,8 @@ public class HAT<T> implements List<T> {
 	 * later resizes 
 	 */ 
 	private void checkExpand(){
-		if (parentPosition == size / 2 && childPosition == size / 2){
+		if (size == Math.pow(parent.length,2)){
+			int oldSize = size;
 			int newSize = (int) (parent.length * GROWTH_FACTOR);
 			Object[][] newParent = new Object[newSize][newSize]; 
 
@@ -74,11 +77,13 @@ public class HAT<T> implements List<T> {
                 for (int j = 0; j < parent.length; j++){
                     if (newChildPosition == newSize){
                     	newChildPosition = 0;
-                    	newParentPosition++; 	
+                    	newParentPosition++;	
                     }  
                     newParent[newParentPosition][newChildPosition++] = parent[i][j];
                 }
             }
+            parentPosition = size/newSize;
+            childPosition = 0;
             parent = newParent;
 		}
 	}
@@ -138,7 +143,9 @@ public class HAT<T> implements List<T> {
 		test.add(14);
 		test.add(15);
 		test.add(16);
-		// test.add(17); 
+		test.add(17); 
+		test.add(18); 
+
 
 		System.out.println(test); 
 	}
