@@ -55,22 +55,23 @@ public class HAT<T> implements List<T> {
 		}
 		parent[parentPosition][childPosition++] = element; 
 		size++; 
+
 	}
 
 	private void checkExpand(){
-		if (size / 2 == parent.length){
+		if (parentPosition == size / 2 && childPosition == size / 2){
 			int newSize = (int) (parent.length * GROWTH_FACTOR);
 			Object[][] newParent = new Object[newSize][newSize]; 
 
 			int newParentPosition = 0;
-			int newChildPosition = 0;
+			int newChildPosition = 0;  	
 			for (int i = 0; i < parent.length; i++){
                 for (int j = 0; j < parent.length; j++){
-                    newParent[newParentPosition][newChildPosition++] = parent[i][j]; 
-                    if(newChildPosition == newSize){
+                    if (newChildPosition == newSize){
                     	newChildPosition = 0;
-                    	newParentPosition++;
-                    }	
+                    	newParentPosition++;      	
+                    }  
+                    newParent[newParentPosition][newChildPosition++] = parent[i][j];
                 }
             }
             parent = newParent;
