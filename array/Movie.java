@@ -18,9 +18,8 @@ public class Movie{
 		try{
 			File file = new File(filePath);
 			Scanner scanner = new Scanner(file);
-
+			scanner.nextLine(); 
 			while (scanner.hasNextLine()) {
-				scanner.nextLine(); 
 				String movieStr = scanner.nextLine();
 				String[] movieArr = movieStr.split(","); 
 
@@ -31,14 +30,31 @@ public class Movie{
 		catch(FileNotFoundException e){
 			 System.err.println("File not found: " + e.getMessage());
 		}
-		System.out.println("Injested "+this.movieList.size()+" from the file"); 
+		System.out.println("(Injested "+this.movieList.size()+" from the file)");
+		System.out.println(); 
 	}
+
+	public static int getIntFromUser() {
+        Scanner scanner = new Scanner(System.in);
+        while (!scanner.hasNextInt()) { scanner.nextLine(); }
+        return scanner.nextInt();
+    }
 
 	public static void main(String[] args){
 		Movie list = new Movie(); 
 		boolean isToy = true; 
 		// isToy = false; 
 		list.injestData(isToy); 
-		System.out.println(list); 
-	}
+
+		System.out.println("Welcome to HATboxd :D");
+        System.out.println("- Choose a query to filter & sort by (type & enter the number):");
+        System.out.println("-- 1) Rating   2) Genre   3) Year   4) Average Score   5) Director   6) Star");
+        System.out.println(); 
+
+        while (true) {           
+            break; 
+            
+        }
+    } 
 }
+	
