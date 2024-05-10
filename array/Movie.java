@@ -76,6 +76,38 @@ public class Movie{
             	// sort 
             }
 
+            if (intChoice == 2){
+            	System.out.println(); 
+            	System.out.println("Which genre?"); 
+            	System.out.println(); 
+            	String strChoice = getStringFromUser(); 
+            	// sort 
+            }
+
+            if (intChoice == 3){
+            	System.out.println(); 
+            	System.out.println("Which year?"); 
+            	System.out.println(); 
+            	int intChoice2 = getIntFromUser(); 
+            	// sort 
+            }
+
+            if (intChoice == 4){
+            	System.out.println(); 
+            	System.out.println("Which director?"); 
+            	System.out.println(); 
+            	String strChoice = getStringFromUser(); 
+            	// sort 
+            }
+
+            if (intChoice == 5){
+            	System.out.println(); 
+            	System.out.println("Which actor/actress?"); 
+            	System.out.println(); 
+            	String strChoice = getStringFromUser(); 
+            	// sort 
+            }
+
             if (intChoice == 0){
             	System.out.println("program end D:");
             	break; 
