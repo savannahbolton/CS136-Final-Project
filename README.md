@@ -6,7 +6,8 @@ In our implementation of a HAT, we did so with an array of arrays. To ensure tha
 
 
 Here's an example of a Hashed Array Tree with 16 elements and 4 leaves in the parent array:
-<img src="figs/HashedArrayTree16.png" width="100" height="100">
+
+<img src="figs/HashedArrayTree16.png" width="500" height="500">
 
 
 Our implementation of a Hashed Array Tree will will be used for an application that uses real-life movie data to store information including movie titles, genre, release year, and director. Our data is stored in `array/movies.csv`, with a toy data set being stored in `array/toyMovies.csv`, used for testing purposes. 
