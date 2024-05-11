@@ -23,8 +23,9 @@ public class MovieInfo{
 	}
 
 	@Override
+	// each object starts and ends with a curly bracket to differentiate each object inside a list 
 	public String toString(){
-		return movieName + "\n" + rating + ", " + genre + ", " + year + ", " + score + ", " + director + ", " + star; 
+		return "{" + movieName + "\n" + rating + ", " + genre + ", " + year + ", " + score + ", " + director + ", " + star + "}"; 
 	}
 
 	// getter methods for each part of a movie we are looking at 

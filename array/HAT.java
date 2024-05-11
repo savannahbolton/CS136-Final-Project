@@ -37,10 +37,10 @@ public class HAT<T> implements List<T> {
 		String out = "[";
 		for (int i = 0; i < parent.length; i++){
 			for (int j = 0; j < parent.length; j++){
-				// if(parent[i][j]==null){
-				// 	out+= "]";
-				// 	return out;
-				// }
+				if(parent[i][j]==null){
+					out+= "]";
+					return out;
+				}
 				out += parent[i][j] + ", ";
 			}
 		}
@@ -61,10 +61,6 @@ public class HAT<T> implements List<T> {
 		size++; 
 	}
 
-	/**
-	 * works when the capacity resizes from two to four, fix so that it works for 
-	 * later resizes 
-	 */ 
 	private void checkExpand(){
 		if (size == Math.pow(parent.length,2)){
 			int oldSize = size;
@@ -123,10 +119,6 @@ public class HAT<T> implements List<T> {
 	// //Savannah
 	public Object get(int parentIndex, int childIndex){
 		return parent[parentIndex][childIndex]; 
-	}
-
-	public Object[][] getArray(){
-		return this.parent; 
 	}
 
 	public static void main(String[] args){
