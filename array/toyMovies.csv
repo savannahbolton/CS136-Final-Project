@@ -1,28 +1,4 @@
-name,rating,genre,year,released,score,votes,director,writer,star,country,budget,gross,company,runtime
-The Conjuring,R,Horror,2013,"July 19, 2013 (United States)",7.5,464000.0,James Wan,Chad Hayes,Patrick Wilson,United States,20000000.0,320290989.0,New Line Cinema,112.0
-Friday the 13th,R,Horror,2009,"February 13, 2009 (United States)",5.5,100000.0,Marcus Nispel,Victor Miller,Jared Padalecki,United States,19000000.0,91509154.0,New Line Cinema,97.0
-Scream,R,Horror,1981,"January 1, 1981 (United States)",2.9,674.0,Byron Quisenberry,Byron Quisenberry,Pepper Martin,United States,,,Calendar International Pictures,82.0
-Insidious,PG-13,Horror,2010,"April 1, 2011 (United States)",6.8,287000.0,James Wan,Leigh Whannell,Patrick Wilson,United States,1500000.0,99557032.0,FilmDistrict,103.0
-The Boy,PG-13,Horror,2016,"January 22, 2016 (United States)",6.0,84000.0,William Brent Bell,Stacey Menear,Lauren Cohan,United States,10000000.0,73929392.0,Lakeshore Entertainment,97.0
-The Notebook,PG-13,Drama,2004,"June 25, 2004 (United States)",7.8,534000.0,Nick Cassavetes,Jeremy Leven,Gena Rowlands,United States,29000000.0,117815157.0,New Line Cinema,123.0
-Romeo and Juliet,PG-13,Drama,2013,"October, 11 2013 (United States)",5.8,11000.0,Carlo Carlei,Arthur Brooke,Hailee Steinfeld,United Kingdom,,2966268.0,Amber Entertainment,118.0
-Finding Nemo,G,Animation,2003,"May 30, 2003 (United States)",8.1,972000.0,Andrew Stanton,Andrew Stanton,Albert Brooks,United States,94000000.0,940352645.0,Pixar Animation Studios,100.0
-Frozen,PG,Animation,2013,"November 27, 2013 (United States)",7.4,585000.0,Chris Buck,Jennifer Lee,Kristen Bell,United States,150000000.0,1281508100.0,Walt Disney Animation Studios,102.0
-Dead Poets Society,PG,Comedy,1989,"June 9, 1989 (United States)",8.1,442000.0,Peter Weir,Tom Schulman,Robin Williams,United States,16400000.0,235860
-The Little Mermaid,G,Animation,1989,"November 17, 1989 (United States)",7.6,244000.0,Ron Clements,John Musker,Jodi Benson,United States,40000000.0,211343479.0,Walt Disney Pictures,83.0
-The Hunger Games,PG-13,Action,2012,"March 23, 2012 (United States)",7.2,862000.0,Gary Ross,Gary Ross,Jennifer Lawrence,United States,78000000.0,694394724.0,Lionsgate,142.0
-The Devil Wears Prada,PG-13,Comedy,2006,"June 30, 2006 (United States)",6.9,385000.0,David Frankel,Aline Brosh McKenna,Anne Hathaway,United States,35000000.0,326706115.0,Fox 2000 Pictures,109.0
-Divergent,PG-13,Action,2014,"March 21, 2014 (United States)",6.6,435000.0,Neil Burger,Evan Daugherty,Shailene Woodley,United States,85000000.0,288885818.0,Summit Entertainment,139.0
-The Maze Runner,PG-13,Action,2014,"September 19, 2014 (United States)",6.8,431000.0,Wes Ball,Noah Oppenheim,Dylan O'Brien,United States,34000000.0,348319861.0,Twentieth Century Fox,113.0
-The Imitation Game,PG-13,Biography,2014,"December 25, 2014 (United States)",8.0,707000.0,Morten Tyldum,Graham Moore,Benedict Cumberbatch,United Kingdom,14000000.0,233555708.0,Black Bear Pictures,114.0
-The Avengers,PG-13,Action,1998,"August 14, 1998 (United States)",3.8,41000.0,Jeremiah S. Chechik,Sydney Newman,Ralph Fiennes,United States,60000000.0,23384939.0,Warner Bros.,89.0
-Trolls,PG,Animation,2016,"November 4, 2016 (United States)",6.5,75000.0,Mike Mitchell,Jonathan Aibel,Anna Kendrick,United States,125000000.0,346864886.0,DreamWorks Animation,92.0
-Teenage Mutant Ninja Turtles: Out of the Shadows,PG-13,Action,2016,"June 3, 2016 (United States)",6.0,87000.0,Dave Green,Josh Appelbaum,Megan Fox,United States,135000000.0,245623848.0,Paramount Pictures,112.0
-The Blair Witch Project,R,Horror,1999,"July 30, 1999 (United States)",6.5,239000.0,Daniel Myrick,Daniel Myrick,Heather Donahue,United States,60000.0,248639099.0,Haxan Films,81.0
-10 Things I Hate About You,PG-13,Comedy,1999,"March 31, 1999 (United States)",7.3,309000.0,Gil Junger,Karen McCullah,Heath Ledger,United States,30000000.0,53478579.0,Touchstone Pictures,97.0
-Star Wars: Episode I - The Phantom Menace,PG,Action,1999,"May 19, 1999 (United States)",6.5,748000.0,George Lucas,George Lucas,Ewan McGregor,United States,115000000.0,1027082707.0,Lucasfilm,136.0
-The Sixth Sense,PG-13,Drama,1999,"August 6, 1999 (United States)",8.1,930000.0,M. Night Shyamalan,M. Night Shyamalan,Bruce Willis,United States,40000000.0,672806292.0,Hollywood Pictures,107.0
-Stuart Little,PG,Adventure,1999,"December 17, 1999 (United States)",5.9,128000.0,Rob Minkoff,E.B. White,Michael J. Fox,Germany,133000000.0,300135367.0,Columbia Pictures,84.0
-Little Women,PG,Drama,2019,"December 25, 2019 (United States)",7.8,159000.0,Greta Gerwig,Greta Gerwig,Saoirse Ronan,United States,40000000.0,216601214.0,Columbia Pictures,135.0
-"Bon Voyage, Charlie Brown (and Don't Come Back!!)",G,Animation,1980,"May 30, 1980 (United States)",7.3,2900.0,Bill Melendez,Charles M. Schulz,Scott Beach,United States,,2013193.0,Lee Mendelson Film Productions,75.0
-"Spring, Summer, Fall, Winter... and Spring",R,Drama,2003,"May 28, 2004 (United States)",8.0,79000.0,Kim Ki-duk,Kim Ki-duk,Kim Ki-duk,South Korea,,8945072.0,Korea Pictures,103.0
+
+Black Wall Street Burning,R,Drama,2020,"February 7, 2020 (United States)",6.6,35.0,Marcus Brown,Dekoven Riggins,Dan Belcher,United States,5000.0,,Notis Studio,78.0
+I Am Fear,Not Rated,Horror,2020,"March 3, 2020 (United States)",3.4,447.0,Kevin Shulman,Kevin Shulman,Kristina Klebe,United States,,13266.0,Roxwell Films,87.0
+Aloha Surf Hotel,,Comedy,2020,"November 5, 2020 (United States)",7.1,14.0,Stefan C. Schaefer,Stefan C. Schaefer,Augie Tulba,United States,,,Abominable Pictures,90.0

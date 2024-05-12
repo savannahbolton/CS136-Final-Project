@@ -51,14 +51,6 @@ public class Movie{
 						newMovieArr[newIndex++] = movieArr[i];
 						}
 					}
-					// String newTitle = "";
-					// for(int i = 0; i < numOfCommas; i++){
-					// 	newTitle += movieArr[i];
-					// }
-					// newMovieArr[0] = newTitle;
-					// for(int i = 1; i < newMovieArr.length; i++){
-					// 	newMovieArr[i] = movieArr[i + numOfCommas];
-					// }
 					movieArr = newMovieArr;
 				}
 
@@ -117,7 +109,7 @@ public class Movie{
 			l.set(j, temp);
 		}
 
-		for (int i = 0; i < n2; i++){
+		for (int i = 0; i < 5; i++){
     		String toAdd = l.get(i).getName(); 
     		if (!movieList.contains(toAdd)){
     			this.movieList.add(toAdd + " (" + insert + ", " + l.get(i).getScore() + ")");
