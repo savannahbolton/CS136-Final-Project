@@ -24,7 +24,43 @@ public class Movie{
 			scanner.nextLine(); 
 			while (scanner.hasNextLine()) {
 				String movieStr = scanner.nextLine();
-				String[] movieArr = movieStr.split(","); 
+				String[] movieArr = movieStr.split(",");
+
+				if(movieArr.length > 15){
+					int numOfCommas = 0;
+					String movieTitle = movieStr.substring(movieStr.indexOf('"'), movieStr.indexOf('"', 2));
+					for(int i = 0; i < movieTitle.length(); i++){
+						if (movieTitle.charAt(i) == ','){
+							numOfCommas++;
+						}
+					}
+
+					String[] newMovieArr = new String[movieArr.length - numOfCommas];
+					int newIndex = 0;
+					boolean titleAdded = false;
+					for(int i = 0; i < movieArr.length; i++){
+						if(!titleAdded && movieArr[i].contains("\"")){
+							newMovieArr[newIndex++] = movieArr[i].substring(1);
+							while (!movieArr[i].endsWith("\"")) {
+           						i++;
+           						newMovieArr[newIndex - 1] += "," + movieArr[i];
+							}
+							newMovieArr[newIndex - 1] = newMovieArr[newIndex - 1].substring(0, newMovieArr[newIndex - 1].length() - 1);
+           					titleAdded = true;
+						} else {
+						newMovieArr[newIndex++] = movieArr[i];
+						}
+					}
+					// String newTitle = "";
+					// for(int i = 0; i < numOfCommas; i++){
+					// 	newTitle += movieArr[i];
+					// }
+					// newMovieArr[0] = newTitle;
+					// for(int i = 1; i < newMovieArr.length; i++){
+					// 	newMovieArr[i] = movieArr[i + numOfCommas];
+					// }
+					movieArr = newMovieArr;
+				}
 
 				MovieInfo movie = new MovieInfo(movieArr[0], movieArr[1], movieArr[2], Integer.parseInt(movieArr[3]), Double.parseDouble(movieArr[6]), movieArr[8], movieArr[10]);
 				list.add(movie); 
@@ -58,7 +94,8 @@ public class Movie{
 	// insertion sort that is called on the instance variable arraylist to sort all of the movies 
 	// from lab 5
 	public void getList(Comparator<MovieInfo> comp, String insert){
-		ArrayList<MovieInfo> l = new ArrayList<MovieInfo>(); 
+		ArrayList<MovieInfo> l = new ArrayList<MovieInfo>();
+		this.movieList = new HAT<String>(6);
 		int n1 = this.list.size(); 
 		for (int i = 0; i < n1; i++){
 			if (list.get(i).getRating().equals(insert) || list.get(i).getGenre().equals(insert) || Integer.toString(list.get(i).getYear()).equals(insert) || Double.toString(list.get(i).getScore()).equals(insert) || list.get(i).getDirector().equals(insert) || list.get(i).getStar().equals(insert)){
@@ -69,7 +106,7 @@ public class Movie{
 
 		int n2 = l.size(); 
 		for (int i = 1; i < n2; i++){
-			MovieInfo temp = list.get(i);
+			MovieInfo temp = l.get(i);
 			int j = i;
 
 			while (j > 0 && comp.compare(l.get(j - 1), temp) > 0){
@@ -91,7 +128,7 @@ public class Movie{
 	public static void main(String[] args){
 		Movie list = new Movie(); 
 		boolean isToy = true; 
-		// isToy = false; 
+		isToy = false; 
 		list.injestData(isToy);
 		System.out.println("Welcome to HATboxd :D");
         System.out.println("- Choose a query to filter & sort by (type & enter the number):");
@@ -172,8 +209,8 @@ class ScoreComparator implements Comparator<MovieInfo>{
     public int compare(MovieInfo movie1, MovieInfo movie2){
     	double rating1 = movie1.getScore();
     	double rating2 = movie2.getScore(); 
-        if (rating1 > rating2) return 1; 
-        if (rating1 < rating2) return -1; 
+        if (rating1 < rating2) return 1; 
+        if (rating1 > rating2) return -1; 
         return 0; 
     }
 }
