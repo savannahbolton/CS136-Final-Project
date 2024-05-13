@@ -42,7 +42,6 @@ public class Movie{
 						}
 					}
 					movieArr = newMovieArr;
-					System.out.println(newMovieArr[0]);
 				}
 
 				MovieInfo movie = new MovieInfo(movieArr[0], movieArr[1], movieArr[2], Integer.parseInt(movieArr[3]), Double.parseDouble(movieArr[5]), movieArr[7], movieArr[9]);
@@ -52,8 +51,7 @@ public class Movie{
 		catch(FileNotFoundException e){
 			 System.err.println("File not found: " + e.getMessage());
 		}
-		System.out.println("(Injested "+this.list.size()+" from the file)");
-		System.out.println(); 
+		System.out.println("(Injested "+this.list.size()+" films from the file)");
 	}
 
 	// from past labs 
@@ -100,12 +98,23 @@ public class Movie{
 			l.set(j, temp);
 		}
 
-		for (int i = 0; i < 5; i++){
-    		String toAdd = l.get(i).getName(); 
-    		if (!movieList.contains(toAdd)){
+		if (l.size() < 5){
+			for (int i = 0; i < l.size(); i++){
+				String toAdd = l.get(i).getName(); 
+				if (!movieList.contains(toAdd)){
     			this.movieList.add(toAdd + " (" + insert + ", " + l.get(i).getScore() + ")");
+    			}
+			}
+		}
+
+		else{
+			for (int i = 0; i < 5; i++){
+    			String toAdd = l.get(i).getName(); 
+    			if (!movieList.contains(toAdd)){
+    			this.movieList.add(toAdd + " (" + insert + ", " + l.get(i).getScore() + ")");
+    			}
     		}
-    	}
+		}
 	}
 
 	public static void main(String[] args){
