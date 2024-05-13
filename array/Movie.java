@@ -26,37 +26,27 @@ public class Movie{
 				String movieStr = scanner.nextLine();
 				String[] movieArr = movieStr.split(",");
 
-				if(movieArr.length > 16){
-					int numOfCommas = 0;
-					String movieTitle = movieStr.substring(movieStr.indexOf('"'), movieStr.indexOf('"', 2));
-					for(int i = 0; i < movieTitle.length(); i++){
-						if (movieTitle.charAt(i) == ','){
-							numOfCommas++;
-						}
-					}
-
-					String[] newMovieArr = new String[movieArr.length - numOfCommas];
-					int newIndex = 0;
-					boolean titleAdded = false;
-					for(int i = 0; i < movieArr.length; i++){
-						if(!titleAdded && movieArr[i].contains("\"")){
-							newMovieArr[newIndex++] = movieArr[i].substring(1);
-							while (!movieArr[i].endsWith("\"")) {
-           						i++;
-           						newMovieArr[newIndex - 1] += "," + movieArr[i];
+				if(movieArr.length != 15){
+					int startPosition = 0;
+					int arrayPosition = 0;
+					boolean isInQuotes = false;
+					String[] newMovieArr = new String[15];
+					for(int i = 0; i < movieStr.length(); i++){
+						if(i == movieStr.length() || movieStr.charAt(i) == ','){
+							if(!isInQuotes){
+								newMovieArr[arrayPosition++] = movieStr.substring(startPosition, i);
+               					startPosition = i + 1;
 							}
-							newMovieArr[newIndex - 1] = newMovieArr[newIndex - 1].substring(0, newMovieArr[newIndex - 1].length() - 1);
-           					titleAdded = true;
-						} else {
-						newMovieArr[newIndex++] = movieArr[i];
+						} else if (movieStr.charAt(i) == '\"'){
+							isInQuotes = !isInQuotes;
 						}
 					}
 					movieArr = newMovieArr;
+					System.out.println(newMovieArr[0]);
 				}
 
-				//System.out.println(movieArr[0] +  " " + movieArr[6]);
-				MovieInfo movie = new MovieInfo(movieArr[0], movieArr[1], movieArr[2], Integer.parseInt(movieArr[3]), Double.parseDouble(movieArr[6]), movieArr[8], movieArr[10]);
-				list.add(movie); 
+				MovieInfo movie = new MovieInfo(movieArr[0], movieArr[1], movieArr[2], Integer.parseInt(movieArr[3]), Double.parseDouble(movieArr[5]), movieArr[7], movieArr[9]);
+				list.add(movie); 	
             }
 		}
 		catch(FileNotFoundException e){
