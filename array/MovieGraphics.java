@@ -2,117 +2,208 @@ package array;
 
 import java.util.*;
 import java.io.*;
-import array.HAT.*;
-
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import java.awt.image.BufferedImage;
-
+import array.Movie.*;
+import java.awt.*;
 import javax.swing.*;
+import java.awt.event.*;
 
 public class MovieGraphics extends JFrame{
-	JFrame mainWindow;
+	CardLayout cardLayout;
+	JPanel mainPanel;
 	JLabel mainLabel;
+	Movie movie;
+	JTextArea moviePanel;
+
 	public MovieGraphics(){
-		mainWindow = new JFrame();
-		mainWindow.setSize(800, 800);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setSize(800, 800);
+
+		cardLayout = new CardLayout();
+		mainPanel = new JPanel(cardLayout);
+		movie = new Movie();
+		movie.injestData(false);
+
+		JButton backButton = new JButton("<html><font face='Comic Sans MS' font size='100' color=black> back to menu");
+		backButton.setBackground(Color.BLACK);
+		backButton.setOpaque(true);
+
+		//main menu
+		JPanel panel1 = new JPanel();
+        panel1.setBackground(Color.PINK);
+        JPanel imagePanel = new JPanel(new BorderLayout());
+        imagePanel.setBackground(Color.PINK);
+        // Load image
+        ImageIcon icon = new ImageIcon(new ImageIcon("figs/catbackground.png").getImage().getScaledInstance(637, 637, Image.SCALE_DEFAULT)); 
+        JLabel imageLabel = new JLabel(icon);
+        imagePanel.add(imageLabel, BorderLayout.CENTER);
+        panel1.add(imagePanel);
+        JTextPane textbox2 = new JTextPane();
+        textbox2.setContentType("text/html");
+        textbox2.setText("<html><font face='Comic Sans MS' font size='500' color=black> HATboxd");
+        textbox2.setBounds(150, 100, 800, 800);
+        textbox2.setBackground(Color.WHITE);
+        textbox2.setOpaque(true);
+        panel1.add(textbox2);
+
+
+        //sorting menu
+        JPanel panel2 = new JPanel();
+        panel2.setBackground(Color.PINK);
+        //text panels
+        JTextPane textbox1 = new JTextPane();
+        textbox1.setContentType("text/html");
+        textbox1.setText("<html><font face='Comic Sans MS' font size='300' color=black> Choose a query to filter & sort by: ");
+        textbox1.setBounds(150, 100, 800, 800);
+        textbox1.setBackground(Color.WHITE);
+        textbox1.setOpaque(true);
+        panel2.add(textbox1);
+
+        //all buttons on sorting menu
+        JButton rating = new JButton("<html><font face='Comic Sans MS' font size='100' color=black> rating");
+        rating.setBackground(Color.BLACK);
+		rating.setOpaque(true);
+        JButton genre = new JButton("<html><font face='Comic Sans MS' font size='100' color=black> genre");
+        genre.setBackground(Color.BLACK);
+        genre.setOpaque(true);
+        JButton year = new JButton("<html><font face='Comic Sans MS' font size='100' color=black> year");
+        year.setBackground(Color.BLACK);
+        year.setOpaque(true);
+        JButton director = new JButton("<html><font face='Comic Sans MS' font size='100' color=black> director");
+        director.setBackground(Color.BLACK);
+        director.setOpaque(true);
+        JButton star = new JButton("<html><font face='Comic Sans MS' font size='100' color=black> star");
+        star.setBackground(Color.BLACK);
+        star.setOpaque(true);
+        panel2.add(rating);
+        panel2.add(genre);
+        panel2.add(year);
+        panel2.add(director);
+        panel2.add(star);
+        panel2.add(backButton);
+
+        moviePanel = new JTextArea();
+        moviePanel.setBackground(Color.PINK);
+        Font font = new Font("Comic Sans MS", Font.PLAIN, 45);
+        moviePanel.setFont(font);
+        moviePanel.setLineWrap(true);
+		moviePanel.setWrapStyleWord(true);
+		moviePanel.setPreferredSize(new Dimension(700, 600));
+		moviePanel.setBackground(Color.WHITE);
+        panel2.add(moviePanel);
+
+		rating.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e){
+				String userInput = JOptionPane.showInputDialog(null, "Which rating? [G, PG, PG-13, R, Unrated]");
+        		if(userInput != null) {
+            		movie.graphics(userInput);
+            		moviePanel.setText("Movies (Sorted by score): " + movie.getArray().toString());
+				}
+			}
+		});
+
+		genre.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e){
+				String userInput = JOptionPane.showInputDialog(null, "Which genre? [Horror, Action, Drama, Comedy, etc.]");
+        		if(userInput != null) {
+            		movie.graphics(userInput);
+            		moviePanel.setText("Movies (Sorted by score): " + movie.getArray().toString());
+				}
+			}
+		});
+
+		year.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e){
+				String userInput = JOptionPane.showInputDialog(null, "Which year? [1986-2020]");
+        		if(userInput != null) {
+            		movie.graphics(userInput);
+            		moviePanel.setText("Movies (Sorted by score): " + movie.getArray().toString());
+				}
+			}
+		});
+
+		director.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e){
+				String userInput = JOptionPane.showInputDialog(null, "Which director? [type their full name]");
+        		if(userInput != null) {
+            		movie.graphics(userInput);
+            		moviePanel.setText("Movies (Sorted by score): " + movie.getArray().toString());
+				}
+			}
+		});
+
+		star.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e){
+				String userInput = JOptionPane.showInputDialog(null, "Which star? [type their full name]");
+        		if(userInput != null) {
+            		movie.graphics(userInput);
+            		moviePanel.setText("Movies (Sorted by score): " + movie.getArray().toString());
+				}
+			}
+		});
+
+		backButton.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e){
+				cardLayout.first(mainPanel);
+			}
+		});
+
+
+        //review menu
+        JPanel panel3 = new JPanel();
+        panel3.setBackground(Color.PINK);
+
+        mainPanel.add(panel1);
+        mainPanel.add(panel2);
+        mainPanel.add(panel3);
+
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        buttonPanel.setBackground(Color.PINK);
 
 		//SORT BUTTON
-		JButton sortButton = new JButton("<html><font size='300' color=blue> SORT");
-		sortButton.setBounds(150, 600, 500, 100);
-		sortButton.setBackground(Color.RED);
+		JButton sortButton = new JButton("<html><font face='Comic Sans MS' font size='200' color=black> Get a Recommendation");
+		sortButton.setBackground(Color.BLACK);
 		sortButton.setOpaque(true);
+		buttonPanel.add(sortButton);
 
-		//MAIN LABEL
-		mainLabel = new JLabel();
-		JPanel label = new JPanel();
-		mainLabel.setText("HATboxd!!!!");
-		label.add(mainLabel);
-		label.setOpaque(true);
-		label.setBackground(Color.WHITE);
-		label.setBounds(300, 200, 200, 200);
+		//REVIEW BUTTON
+		JButton reviewButton = new JButton("<html><font face='Comic Sans MS' font size = '300' color=black> Write a Review");
+		reviewButton.setBackground(Color.BLACK);
+		reviewButton.setOpaque(true);
+		buttonPanel.add(reviewButton);
 
-		mainWindow.add(sortButton);
-		mainWindow.setLayout(null);
-		mainWindow.setVisible(true);
-		mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		mainWindow.getContentPane().setBackground(Color.frePINK);
-		mainWindow.add(label);
+        panel1.add(buttonPanel);
+
+		//checks when sort button is clicked
+		sortButton.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e){
+				cardLayout.next(mainPanel);
+			}
+		});
+
+		//checks when review button is clicked
+		reviewButton.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e){
+				cardLayout.last(mainPanel);
+			}
+		});
+
+		getContentPane().add(mainPanel);
+        getContentPane().setBackground(Color.PINK);
+
+        setVisible(true);
 	}
-	// public Movie graphicslist; 
 
-	// public BufferedImage bf = new BufferedImage(800, 800, 
-	// 		BufferedImage.TYPE_INT_RGB);
-	
-	// public MovieGraphics() {
-	// 	this.graphicslist = new Movie(); 
-
-	// 	CoinMouseListener listener = new CoinMouseListener();
-	// 	addMouseListener(listener);
-	// 	addMouseMotionListener(listener);
-		
-
-	// 	JPanel panel = new JPanel();
-	// 	JButton sortButton = new JButton("SORT");
-	// 	panel.add(sortButton);
-	// 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	// 	setSize(800, 800);
-	// 	setVisible(true);
-
-	// }
-
-	// private int getCoinSquareIndex(int x, int y) {
-	// 	return 0; 
-	// }
-	
-	// public void paint(Graphics g) {
-	// 	Graphics2D g2 = (Graphics2D) bf.getGraphics();;
-
-	// 	g2.setPaint(Color.WHITE);
-
-	// 	g.drawImage(bf,0,0,null);	
-	// }
-		
-	/**
-	 * An inner class to respond to mouse events.
-	 */
-	// private class CoinMouseListener implements MouseListener, MouseMotionListener {
-		
-	// 	public void mousePressed(MouseEvent event) {
-			
-	// 	}
-
-	// 	private boolean clickedOnCoin(int x, int y) {
-	// 		return true; 
-	// 	}
-		
-	// 	public void mouseReleased(MouseEvent event) {
-			
-	// 	}
-
-	// 	public void mouseDragged(MouseEvent event) {
-			
-	// 	}
-
-	// 	public void mouseClicked(MouseEvent event) {}
-	// 	public void mouseEntered(MouseEvent event) {}
-	// 	public void mouseExited(MouseEvent event) {}
-	// 	public void mouseMoved(MouseEvent event) {}
-	// }
 
 	public static void main(String[] args) {
 		new MovieGraphics();
-		// JFrame mainWindow = new JFrame();
-		// mainWindow.setSize(800, 800);
-		// JButton sortButton = new JButton("SORT");
-		// sortButton.setBounds(100, 100, 500, 100);
-		// mainWindow.add(sortButton);
-		// mainWindow.setLayout(null);
-		// mainWindow.setVisible(true);
 
 	}
 
