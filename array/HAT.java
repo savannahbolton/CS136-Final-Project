@@ -10,9 +10,10 @@ public class HAT<T> implements List<T> {
 	private static final int DEFAULT_INITIAL_CAPACITY = 4; // a power of 2 default capacity (as given by the rules of a HAT)
 
 	//instance variables
+	// using position instance variables largely to keep runtime down when appending 
 	private int size; // number of elements inside the entire array (both parent & child)
-	private int parentPosition; // indices to keep track to keep runtime down (parent array)
-	private int childPosition; // (child array that is attached to each element in the parent)
+	private int parentPosition; // indices to keep track in the parent array 
+	private int childPosition; // child array that is attached to each element in the parent
 	private Object[][] parent;
 
 	// specified capacity constructor 
@@ -33,6 +34,8 @@ public class HAT<T> implements List<T> {
 	}
 
 	@Override
+	// prints the hashed array tree in square brackets, with a case that checks if 
+	// a space is null (will not print the null spaces if included)
 	public String toString(){
 		String out = "[";
 		for (int i = 0; i < parent.length; i++){
@@ -48,8 +51,8 @@ public class HAT<T> implements List<T> {
 		return out; 
 	}
 
-	//Savannah
-	//add an element to both parent and child arrays. If reaches capacity, double the size of the array.
+	// adds a specified element to a spot inside a child aray of the parent. if reaches capacity, 
+	// double the size of the array.
 	public void add(T element){
 		checkExpand();
 		if (childPosition == parent.length){
@@ -84,26 +87,26 @@ public class HAT<T> implements List<T> {
 		}
 	}
 
-	//Natalia 
-	//Set element in index if it's empty.
+	// Natalia 
+	// set an element inside the array to an element with the specified indices 
 	public void set(int parentIndex, int childIndex, T element){
 		parent[parentIndex][childIndex] = element;
 	}
 
-	// //returns the size of the tree
-	// //Savannah
+	// Savannah
+	// returns the size of the tree
 	public int size(){
 		return size; 
 	}
 
-	// //returns true if the tree isEmpty
-	// //Natalia
+	// Natalia
+	// returns true if the tree is empty (if there are no elements inside the HAT)
 	public boolean isEmpty(){
 		return size() == 0;
 	}
 
-	// //returns true if contains element 
-	// //Natalia
+	// Natalia
+	// returns true if the HAT contains the specified element 
 	public boolean contains(T element){
 		for(int i = 0; i < parent.length; i++){
 			for(int j = 0; j < parent.length; j++){
@@ -115,8 +118,8 @@ public class HAT<T> implements List<T> {
 		return false; 
 	}
 
-	// //gets the element at a specified parent and child index
-	// //Savannah
+	// Savannah
+	// gets the element at a specified parent and child index
 	public Object get(int parentIndex, int childIndex){
 		return parent[parentIndex][childIndex]; 
 	}

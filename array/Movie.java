@@ -5,14 +5,15 @@ import java.io.*;
 import array.HAT.*;
 
 public class Movie{
-	public HAT<String> movieList; 
-	public ArrayList<MovieInfo> list; 
+
+	public HAT<String> movieList; // the hashed array tree that the filtered & sorted elements will be added to 
+	public ArrayList<MovieInfo> list; // a list of every movie from the data set so that it can be filtered
+
 	public Movie(){
 		this.movieList = new HAT<String>(6); 
 		this.list = new ArrayList<MovieInfo>(); 
 	}
 
-	// fix this so that commas within the title, etc. do not conflict with the indexing 
 	public void injestData(boolean isToy){
 		String filePath = ""; 
 		if(isToy) {filePath = "array/toyMovies.csv";}
@@ -54,25 +55,28 @@ public class Movie{
 		System.out.println("(Injested "+this.list.size()+" films from the file)");
 	}
 
-	// from past labs 
+	// to get the query category from the user 
 	public static int getIntFromUser() {
         Scanner scanner = new Scanner(System.in);
         while (!scanner.hasNextInt()) { scanner.nextLine(); }
         return scanner.nextInt();
     }
 
+    // to get the specific information to filter by 
     public static String getStringFromUser() {
         Scanner scanner = new Scanner(System.in);
         while (!scanner.hasNextLine()) { scanner.nextLine(); }
         return scanner.nextLine();
     }
 
-    // to get the sortted HAT  
+    // to get the sorted HAT
     public HAT<String> getArray(){
     	return this.movieList; 
 	}
 
-	// insertion sort that is called on the instance variable arraylist to sort all of the movies 
+	// insertion sort that is called on the instance variable arraylist to sort all of the movies.
+	// it will check if any part of a MovieInfo object is equal to the inserted string (which will be the 
+	// user input obtained from the getStringFromUser())
 	// from lab 5
 	public void getList(Comparator<MovieInfo> comp, String insert){
 		ArrayList<MovieInfo> l = new ArrayList<MovieInfo>();
@@ -96,6 +100,10 @@ public class Movie{
 				}
 
 			l.set(j, temp);
+		}
+
+		if (l.size() == 0){
+			System.out.println("Nothing fits this query!"); 
 		}
 
 		if (l.size() < 5){
@@ -122,6 +130,7 @@ public class Movie{
 		boolean isToy = true; 
 		isToy = false; 
 		list.injestData(isToy);
+		
 		System.out.println("Welcome to HATboxd :D");
         System.out.println("- Choose a query to filter & sort by (type & enter the number):");
         System.out.println("-- 1) Rating   2) Genre   3) Year   4) Director   5) Star");
@@ -136,7 +145,7 @@ public class Movie{
             	String strChoice = getStringFromUser(); 
             	list.getList(new ScoreComparator(), strChoice); 
             	System.out.println(); 
-            	System.out.println("Your sorted array:");
+            	System.out.println("Your HATboxd:");
             	System.out.println(list.getArray()); 
             }
 
@@ -147,7 +156,7 @@ public class Movie{
             	String strChoice = getStringFromUser(); 
             	list.getList(new ScoreComparator(), strChoice); 
             	System.out.println(); 
-            	System.out.println("Your sorted array:");
+            	System.out.println("Your HATboxd:");
             	System.out.println(list.getArray()); 
             }
 
@@ -158,7 +167,7 @@ public class Movie{
             	int intChoice2 = getIntFromUser();  
             	list.getList(new ScoreComparator(), Integer.toString(intChoice2)); 
             	System.out.println(); 
-            	System.out.println("Your sorted array:");
+            	System.out.println("Your HATboxd:");
             	System.out.println(list.getArray()); 
             }
 
@@ -169,7 +178,7 @@ public class Movie{
             	String strChoice = getStringFromUser(); 
             	list.getList(new ScoreComparator(), strChoice); 
             	System.out.println(); 
-            	System.out.println("Your sorted array:");
+            	System.out.println("Your HATboxd:");
             	System.out.println(list.getArray()); 
             }
 
@@ -180,7 +189,7 @@ public class Movie{
             	String strChoice = getStringFromUser(); 
             	list.getList(new ScoreComparator(), strChoice); 
             	System.out.println(); 
-            	System.out.println("Your sorted array:");
+            	System.out.println("Your HATboxd:");
             	System.out.println(list.getArray()); 
             }
 
