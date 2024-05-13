@@ -26,7 +26,7 @@ public class Movie{
 				String movieStr = scanner.nextLine();
 				String[] movieArr = movieStr.split(",");
 
-				if(movieArr.length > 15){
+				if(movieArr.length > 16){
 					int numOfCommas = 0;
 					String movieTitle = movieStr.substring(movieStr.indexOf('"'), movieStr.indexOf('"', 2));
 					for(int i = 0; i < movieTitle.length(); i++){
@@ -54,6 +54,7 @@ public class Movie{
 					movieArr = newMovieArr;
 				}
 
+				//System.out.println(movieArr[0] +  " " + movieArr[6]);
 				MovieInfo movie = new MovieInfo(movieArr[0], movieArr[1], movieArr[2], Integer.parseInt(movieArr[3]), Double.parseDouble(movieArr[6]), movieArr[8], movieArr[10]);
 				list.add(movie); 
             }
