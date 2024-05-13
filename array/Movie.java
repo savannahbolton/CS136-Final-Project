@@ -125,12 +125,17 @@ public class Movie{
 		}
 	}
 
+	public void graphics(String insert){
+		this.getList(new ScoreComparator(), insert); 
+		System.out.println(movieList); 
+	}
+
 	public static void main(String[] args){
 		Movie list = new Movie(); 
 		boolean isToy = true; 
 		isToy = false; 
 		list.injestData(isToy);
-		
+
 		System.out.println("Welcome to HATboxd :D");
         System.out.println("- Choose a query to filter & sort by (type & enter the number):");
         System.out.println("-- 1) Rating   2) Genre   3) Year   4) Director   5) Star");
@@ -143,10 +148,11 @@ public class Movie{
             	System.out.println("Which rating? [G, PG, PG-13, R, Unrated]"); 
             	System.out.println(); 
             	String strChoice = getStringFromUser(); 
-            	list.getList(new ScoreComparator(), strChoice); 
-            	System.out.println(); 
-            	System.out.println("Your HATboxd:");
-            	System.out.println(list.getArray()); 
+            	list.graphics(strChoice); 
+            	// list.getList(new ScoreComparator(), strChoice); 
+            	// System.out.println(); 
+            	// System.out.println("Your HATboxd:");
+            	// System.out.println(list.getArray()); 
             }
 
             if (intChoice == 2){
@@ -154,10 +160,11 @@ public class Movie{
             	System.out.println("Which genre?"); 
             	System.out.println(); 
             	String strChoice = getStringFromUser(); 
-            	list.getList(new ScoreComparator(), strChoice); 
-            	System.out.println(); 
-            	System.out.println("Your HATboxd:");
-            	System.out.println(list.getArray()); 
+            	list.graphics(strChoice); 
+            	// list.getList(new ScoreComparator(), strChoice); 
+            	// System.out.println(); 
+            	// System.out.println("Your HATboxd:");
+            	// System.out.println(list.getArray()); 
             }
 
             if (intChoice == 3){
@@ -165,10 +172,11 @@ public class Movie{
             	System.out.println("Which year? [1986-2020]"); 
             	System.out.println(); 
             	int intChoice2 = getIntFromUser();  
-            	list.getList(new ScoreComparator(), Integer.toString(intChoice2)); 
-            	System.out.println(); 
-            	System.out.println("Your HATboxd:");
-            	System.out.println(list.getArray()); 
+            	list.graphics(Integer.toString(intChoice2)); 
+            	// list.getList(new ScoreComparator(), Integer.toString(intChoice2)); 
+            	// System.out.println(); 
+            	// System.out.println("Your HATboxd:");
+            	// System.out.println(list.getArray()); 
             }
 
             if (intChoice == 4){
@@ -176,10 +184,11 @@ public class Movie{
             	System.out.println("Which director?"); 
             	System.out.println(); 
             	String strChoice = getStringFromUser(); 
-            	list.getList(new ScoreComparator(), strChoice); 
-            	System.out.println(); 
-            	System.out.println("Your HATboxd:");
-            	System.out.println(list.getArray()); 
+            	list.graphics(strChoice); 
+            	// list.getList(new ScoreComparator(), strChoice); 
+            	// System.out.println(); 
+            	// System.out.println("Your HATboxd:");
+            	// System.out.println(list.getArray()); 
             }
 
             if (intChoice == 5){
@@ -187,10 +196,11 @@ public class Movie{
             	System.out.println("Which actor/actress?"); 
             	System.out.println(); 
             	String strChoice = getStringFromUser(); 
-            	list.getList(new ScoreComparator(), strChoice); 
-            	System.out.println(); 
-            	System.out.println("Your HATboxd:");
-            	System.out.println(list.getArray()); 
+            	list.graphics(strChoice); 
+            	// list.getList(new ScoreComparator(), strChoice); 
+            	// System.out.println(); 
+            	// System.out.println("Your HATboxd:");
+            	// System.out.println(list.getArray()); 
             }
 
             if (intChoice == 0){
