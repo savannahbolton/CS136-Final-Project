@@ -22,7 +22,7 @@ Another challenge we have encountered is the time-space tradeoff of using a dyna
 We decided that instead of inserting every movie in a dataset, we would instead sort by a user-specified query and have a set number of movies inserted into the Hashed Array Tree.
 
 ## Data
-Our data is from scraped IMDb data, which includes pertinent information (i.e., the movie's name, rating, genre, release year, average score, director and star) and other information that we will not be using in our application like budget and earnings. 
+Our data is from [scraped IMDb data](https://www.kaggle.com/datasets/danielgrijalvas/movies/data), which includes pertinent information (i.e., the movie's name, rating, genre, release year, average score, director and star) and other information that we will not be using in our application like budget and earnings. 
 
 ## Application
 HATboxd, the name of our application, will ask the user to filter by certain pieces of information about a film, which are included in our encapsulation of a MovieInfo object that takes in the name, rating, genre, release year, average score, director and star. That filtered information will then be sorted based onthe average score, and our HAT will recommend to the user the highest rated films with that particular filter. 
