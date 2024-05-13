@@ -42,6 +42,7 @@ Your HATboxd:
 Interstellar (Christopher Nolan, 8.6), The Prestige (Christopher Nolan, 8.5), 
 Memento (Christopher Nolan, 8.4), ]
 ````
+Each film that is in the Hashed Array Tree includes the name, the query that the data was filtered by, and the average rating that that data is then sorted by. 
 
 We were inspired by Letterboxd, a website in which users can rate and review films they watch. 
 
