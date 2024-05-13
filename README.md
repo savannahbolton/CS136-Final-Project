@@ -35,6 +35,12 @@ Welcome to HATboxd :D
 ````
 It will then return a list with the top movies with the particular rating. The user will also have an option to quit, and will exit the application. 
 
+For example, the user could type & enter `4`, and will be prompted to input a particular director. If the user were to type `Christopher Nolan`, the following prints in the terminal: 
+````
+Your HATboxd:
+[The Dark Knight (Christopher Nolan, 9.0), Inception (Christopher Nolan, 8.8), Interstellar (Christopher Nolan, 8.6), The Prestige (Christopher Nolan, 8.5), Memento (Christopher Nolan, 8.4), ]
+````
+
 We were inspired by Letterboxd, a website in which users can rate and review films they watch. 
 
 ## Compiling and Executing 
