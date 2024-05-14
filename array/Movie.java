@@ -77,11 +77,10 @@ public class Movie{
     	return this.movieList; 
 	}
 
-	// insertion sort that is called on the instance variable arraylist to sort all of the movies.
+	// sort that is called on the instance variable arraylist to sort all of the movies.
 	// it will check if any part of a MovieInfo object is equal to the inserted string (which will be the 
 	// user input obtained from the getStringFromUser())
-	// from lab 5
-	public void getList(Comparator<MovieInfo> comp, String insert){
+	public void getList(String insert){
 		ArrayList<MovieInfo> l = new ArrayList<MovieInfo>();
 		this.movieList = new HAT<String>(6);
 		int n1 = this.list.size(); 
@@ -92,18 +91,19 @@ public class Movie{
 			}
 		}
 
+		// gnomesort written following the given pseudocode (linked in the readme)
+		int pos = 0; 
 		int n2 = l.size(); 
-		for (int i = 1; i < n2; i++){
-			MovieInfo temp = l.get(i);
-			int j = i;
-
-			while (j > 0 && comp.compare(l.get(j - 1), temp) > 0){
-					l.set(j, l.get(j - 1));
-					j--;
+			while (pos < n2){
+				if (pos == 0 || l.get(pos).getScore() <= l.get(pos - 1).getScore()){
+				pos++; 
+				} else {
+					MovieInfo temp = l.get(pos); 
+					l.set(pos, l.get(pos-1)); 
+					l.set((pos-1), temp); 
+					pos--; 
 				}
-
-			l.set(j, temp);
-		}
+			}
 
 		// if there is no information that fits the particular query 
 		if (l.size() == 0){
@@ -133,7 +133,7 @@ public class Movie{
 
 	// method to call outside the main method for use in the MovieGraphics class
 	public void graphics(String insert){
-		this.getList(new ScoreComparator(), insert); 
+		this.getList(insert); 
 		System.out.println(movieList); 
 	}
 
@@ -201,15 +201,4 @@ public class Movie{
         	System.out.println("--- type & enter 0 to quit");
         }
     } 
-}
-
-class ScoreComparator implements Comparator<MovieInfo>{
-    public int compare(MovieInfo movie1, MovieInfo movie2){
-    	double rating1 = movie1.getScore();
-    	double rating2 = movie2.getScore(); 
-        if (rating1 < rating2) return 1; 
-        if (rating1 > rating2) return -1; 
-        return 0; 
-    }
-}
-	
+}	

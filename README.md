@@ -42,7 +42,7 @@ Your HATboxd:
 Interstellar (Christopher Nolan, 8.6), The Prestige (Christopher Nolan, 8.5), 
 Memento (Christopher Nolan, 8.4), ]
 ````
-Each film that is in the Hashed Array Tree includes the name, the query that the data was filtered by, and the average rating that that data is then sorted by. 
+Each film that is in the Hashed Array Tree includes the name, the query that the data was filtered by, and the average rating that that data is then sorted by. We implemented a sorting algorithm called [GnomeSort](https://en.wikipedia.org/wiki/Gnome_sort), which has a higher runtime (of O(N^2)), but is constant on memory. 
 
 In our graphics version, there are options to get recommendations and write reviews. Any written reviews are stored in the `reviews.txt` file and can be accessed by the user with the `Past Reviews` button. For recommendations, there are buttons for each query, and the user can type in what specific piece of information they would like to filter by. 
 
