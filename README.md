@@ -44,25 +44,29 @@ Memento (Christopher Nolan, 8.4), ]
 ````
 Each film that is in the Hashed Array Tree includes the name, the query that the data was filtered by, and the average rating that that data is then sorted by. 
 
-We were inspired by Letterboxd, a website in which users can rate and review films they watch. 
+In our graphics version, there are options to get recommendations and write reviews. Any written reviews are stored in the `reviews.txt` file and can be accessed by the user with the `Past Reviews` button. For recommendations, there are buttons are each query, and the user can type in what specific piece of information they would like to filter by. 
+
+**We were inspired by Letterboxd, a website in which users can rate and review films they watch.**
 
 ## Compiling and Executing 
 Before compiling, make sure to be in the same directory as the `README.md`. 
-
 Then, make a bin directory to store the .class files. 
 
 ````
 mkdir bin 
 ````
-
 Run the following command to compile: 
 
 ````
 javac -d bin array/*.java
 ````
 
-To execute the HATboxd application, run the following command: 
-
+To execute the text-based version of HATboxd, do the following: 
 ````
 java -cp bin array/Movie
+````
+
+To execute the graphical interface version of HATboxd, do the following:
+````
+java -cp bin array/MovieGraphics
 ````
