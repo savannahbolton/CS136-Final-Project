@@ -92,16 +92,17 @@ public class Movie{
 		}
 
 		// gnomesort written following the given pseudocode (linked in the readme)
-		int pos = 0; 
-		int n2 = l.size(); 
-			while (pos < n2){
-				if (pos == 0 || l.get(pos).getScore() <= l.get(pos - 1).getScore()){
-				pos++; 
+		int q = 0; 
+		int p = l.size(); 
+			while (q < p){
+				if (q == 0 || l.get(q).getScore() <= l.get(q - 1).getScore()){
+				q++; 
 				} else {
-					MovieInfo temp = l.get(pos); 
-					l.set(pos, l.get(pos-1)); 
-					l.set((pos-1), temp); 
-					pos--; 
+					// swapping the elements
+					MovieInfo temp = l.get(q); 
+					l.set(q, l.get(q - 1)); 
+					l.set((q - 1), temp); 
+					q--; 
 				}
 			}
 
