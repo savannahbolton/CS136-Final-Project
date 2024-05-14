@@ -58,20 +58,6 @@ public class Movie{
 		System.out.println("(Injested "+this.list.size()+" films from the file)");
 	}
 
-	// to get the query category from the user 
-	public static int getIntFromUser() {
-        Scanner scanner = new Scanner(System.in);
-        while (!scanner.hasNextInt()) { scanner.nextLine(); }
-        return scanner.nextInt();
-    }
-
-    // to get the specific information to filter by 
-    public static String getStringFromUser() {
-        Scanner scanner = new Scanner(System.in);
-        while (!scanner.hasNextLine()) { scanner.nextLine(); }
-        return scanner.nextLine();
-    }
-
     // to get the sorted HAT
     public HAT<String> getArray(){
     	return this.movieList; 
@@ -137,6 +123,20 @@ public class Movie{
 		this.getList(insert); 
 		System.out.println(movieList); 
 	}
+
+	// to get the query category from the user 
+	public static int getIntFromUser() {
+        Scanner scanner = new Scanner(System.in);
+        while (!scanner.hasNextInt()) { scanner.nextLine(); }
+        return scanner.nextInt();
+    }
+
+    // to get the specific information to filter by 
+    public static String getStringFromUser() {
+        Scanner scanner = new Scanner(System.in);
+        while (!scanner.hasNextLine()) { scanner.nextLine(); }
+        return scanner.nextLine();
+    }
 
 	public static void main(String[] args){
 		Movie list = new Movie(); 
