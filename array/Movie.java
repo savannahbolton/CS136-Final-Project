@@ -8,10 +8,13 @@ public class Movie{
 
 	public HAT<String> movieList; // the hashed array tree that the filtered & sorted elements will be added to 
 	public ArrayList<MovieInfo> list; // a list of every movie from the data set so that it can be filtered
+	public Hashtable<String, String> reviews; 
 
 	public Movie(){
 		this.movieList = new HAT<String>(6); 
 		this.list = new ArrayList<MovieInfo>(); 
+		this.reviews = new Hashtable<String, String>(); 
+
 	}
 
 	public void injestData(boolean isToy){
@@ -149,10 +152,6 @@ public class Movie{
             	System.out.println(); 
             	String strChoice = getStringFromUser(); 
             	list.graphics(strChoice); 
-            	// list.getList(new ScoreComparator(), strChoice); 
-            	// System.out.println(); 
-            	// System.out.println("Your HATboxd:");
-            	// System.out.println(list.getArray()); 
             }
 
             if (intChoice == 2){
@@ -161,10 +160,6 @@ public class Movie{
             	System.out.println(); 
             	String strChoice = getStringFromUser(); 
             	list.graphics(strChoice); 
-            	// list.getList(new ScoreComparator(), strChoice); 
-            	// System.out.println(); 
-            	// System.out.println("Your HATboxd:");
-            	// System.out.println(list.getArray()); 
             }
 
             if (intChoice == 3){
@@ -173,10 +168,6 @@ public class Movie{
             	System.out.println(); 
             	int intChoice2 = getIntFromUser();  
             	list.graphics(Integer.toString(intChoice2)); 
-            	// list.getList(new ScoreComparator(), Integer.toString(intChoice2)); 
-            	// System.out.println(); 
-            	// System.out.println("Your HATboxd:");
-            	// System.out.println(list.getArray()); 
             }
 
             if (intChoice == 4){
@@ -185,10 +176,6 @@ public class Movie{
             	System.out.println(); 
             	String strChoice = getStringFromUser(); 
             	list.graphics(strChoice); 
-            	// list.getList(new ScoreComparator(), strChoice); 
-            	// System.out.println(); 
-            	// System.out.println("Your HATboxd:");
-            	// System.out.println(list.getArray()); 
             }
 
             if (intChoice == 5){
@@ -197,10 +184,6 @@ public class Movie{
             	System.out.println(); 
             	String strChoice = getStringFromUser(); 
             	list.graphics(strChoice); 
-            	// list.getList(new ScoreComparator(), strChoice); 
-            	// System.out.println(); 
-            	// System.out.println("Your HATboxd:");
-            	// System.out.println(list.getArray()); 
             }
 
             if (intChoice == 0){

@@ -12,6 +12,7 @@ public class MovieGraphics extends JFrame{
 	JPanel mainPanel;
 	JLabel mainLabel;
 	Movie movie;
+	Reviews review; 
 	JTextArea moviePanel;
 
 	public MovieGraphics(){
@@ -26,6 +27,10 @@ public class MovieGraphics extends JFrame{
 		JButton backButton = new JButton("<html><font face='Comic Sans MS' font size='100' color=black> back to menu");
 		backButton.setBackground(Color.BLACK);
 		backButton.setOpaque(true);
+
+		JButton backButton2 = new JButton("<html><font face='Comic Sans MS' font size='100' color=black> back to menu");
+		backButton2.setBackground(Color.BLACK);
+		backButton2.setOpaque(true);
 
 		//main menu
 		JPanel panel1 = new JPanel();
@@ -79,7 +84,7 @@ public class MovieGraphics extends JFrame{
         panel2.add(year);
         panel2.add(director);
         panel2.add(star);
-        panel2.add(backButton);
+        panel2.add(backButton2);
 
         moviePanel = new JTextArea();
         moviePanel.setBackground(Color.PINK);
@@ -87,7 +92,7 @@ public class MovieGraphics extends JFrame{
         moviePanel.setFont(font);
         moviePanel.setLineWrap(true);
 		moviePanel.setWrapStyleWord(true);
-		moviePanel.setPreferredSize(new Dimension(700, 600));
+		moviePanel.setPreferredSize(new Dimension(600, 600));
 		moviePanel.setBackground(Color.WHITE);
         panel2.add(moviePanel);
 
@@ -153,12 +158,70 @@ public class MovieGraphics extends JFrame{
 			}
 		});
 
+		backButton2.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e){
+				cardLayout.first(mainPanel);
+			}
+		});
 
         //review menu
         JPanel panel3 = new JPanel();
         panel3.setBackground(Color.PINK);
+        review = new Reviews(); 
 
-        mainPanel.add(panel1);
+        JButton newReview = new JButton("<html><font face='Comic Sans MS' font size='100' color=black> New Review");
+        JButton pastReviews = new JButton("<html><font face='Comic Sans MS' font size='100' color=black> Past Reviews");
+        rating.setBackground(Color.BLACK);
+		rating.setOpaque(true);
+
+        panel3.add(backButton); 
+        panel3.add(newReview);
+        panel3.add(pastReviews); 
+
+        JTextArea reviewPanel = new JTextArea(); 
+        reviewPanel.setBackground(Color.PINK);
+        reviewPanel.setFont(font);
+        reviewPanel.setLineWrap(true);
+		reviewPanel.setWrapStyleWord(true);
+		reviewPanel.setPreferredSize(new Dimension(600, 600));
+		reviewPanel.setBackground(Color.WHITE);
+        panel3.add(reviewPanel);
+
+        newReview.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e){
+				String userInput = JOptionPane.showInputDialog(null, "Enter a film: ");
+        		if(userInput != null){
+        			try{
+        				int q = -1; 
+        				while (q != 0){
+        					String userInput2 = JOptionPane.showInputDialog(null, "Enter your review: ");
+							review.print(userInput, userInput2);
+							reviewPanel.setText(userInput + ":" + "\n" + userInput2);
+							// an answer of yes will make q equal 0, so the loop will break 
+            				q = JOptionPane.showConfirmDialog(null, "Finished with your review?");
+        				}
+        				
+        			} catch (IOException ioex){new IOException(ioex);}
+				}
+			}
+		});
+
+		pastReviews.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e){
+				int q = JOptionPane.showConfirmDialog(null, "See past reviews?");
+				if (q == 0){
+					try{
+						reviewPanel.setText(review.file().toString());
+					} catch (IOException ioex){new IOException(ioex);}
+				}
+				moviePanel.setText(""); 
+			}
+		});
+
+		mainPanel.add(panel1);
         mainPanel.add(panel2);
         mainPanel.add(panel3);
 
@@ -184,6 +247,7 @@ public class MovieGraphics extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e){
 				cardLayout.next(mainPanel);
+				moviePanel.setText(""); 
 			}
 		});
 
@@ -192,6 +256,7 @@ public class MovieGraphics extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e){
 				cardLayout.last(mainPanel);
+				reviewPanel.setText("");
 			}
 		});
 
