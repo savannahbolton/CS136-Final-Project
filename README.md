@@ -25,7 +25,7 @@ We decided that instead of inserting every movie in a dataset, we would instead 
 Our data is from [scraped IMDb data](https://www.kaggle.com/datasets/danielgrijalvas/movies/data), which includes pertinent information (i.e., the movie's name, rating, genre, release year, average score, director and star) and other information that we will not be using in our application like budget and earnings. 
 
 ## Application
-HATboxd, the name of our application, will ask the user to filter by certain pieces of information about a film, which are included in our encapsulation of a MovieInfo object that takes in the name, rating, genre, release year, average score, director and star. That filtered information will then be sorted based onthe average score, and our HAT will recommend to the user the highest rated films with that particular filter. 
+HATboxd, the name of our application, will ask the user to filter by certain pieces of information about a film, which are included in our encapsulation of a MovieInfo object that takes in the name, rating, genre, release year, average score, director and star. That filtered information will then be sorted based on the average score, and our HAT will recommend to the user the highest rated films with that particular filter. 
 
 Our application opens with the following: 
 ````
@@ -44,7 +44,7 @@ Memento (Christopher Nolan, 8.4), ]
 ````
 Each film that is in the Hashed Array Tree includes the name, the query that the data was filtered by, and the average rating that that data is then sorted by. 
 
-In our graphics version, there are options to get recommendations and write reviews. Any written reviews are stored in the `reviews.txt` file and can be accessed by the user with the `Past Reviews` button. For recommendations, there are buttons are each query, and the user can type in what specific piece of information they would like to filter by. 
+In our graphics version, there are options to get recommendations and write reviews. Any written reviews are stored in the `reviews.txt` file and can be accessed by the user with the `Past Reviews` button. For recommendations, there are buttons for each query, and the user can type in what specific piece of information they would like to filter by. 
 
 **We were inspired by Letterboxd, a website in which users can rate and review films they watch.**
 
