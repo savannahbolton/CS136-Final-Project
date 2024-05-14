@@ -32,12 +32,12 @@ public class MovieGraphics extends JFrame{
 		backButton2.setBackground(Color.BLACK);
 		backButton2.setOpaque(true);
 
-		//main menu
+		// main menu
 		JPanel panel1 = new JPanel();
         panel1.setBackground(Color.PINK);
         JPanel imagePanel = new JPanel(new BorderLayout());
         imagePanel.setBackground(Color.PINK);
-        // Load image
+        // load image
         ImageIcon icon = new ImageIcon(new ImageIcon("figs/catbackground.png").getImage().getScaledInstance(637, 637, Image.SCALE_DEFAULT)); 
         JLabel imageLabel = new JLabel(icon);
         imagePanel.add(imageLabel, BorderLayout.CENTER);
@@ -170,6 +170,7 @@ public class MovieGraphics extends JFrame{
         panel3.setBackground(Color.PINK);
         review = new Reviews(); 
 
+        // all review buttons 
         JButton newReview = new JButton("<html><font face='Comic Sans MS' font size='100' color=black> New Review");
         JButton pastReviews = new JButton("<html><font face='Comic Sans MS' font size='100' color=black> Past Reviews");
         rating.setBackground(Color.BLACK);
@@ -228,7 +229,7 @@ public class MovieGraphics extends JFrame{
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         buttonPanel.setBackground(Color.PINK);
 
-		//SORT BUTTON
+		// SORT BUTTON
 		JButton sortButton = new JButton("<html><font face='Comic Sans MS' font size='200' color=black> Get a Recommendation");
 		sortButton.setBackground(Color.BLACK);
 		sortButton.setOpaque(true);
@@ -242,7 +243,7 @@ public class MovieGraphics extends JFrame{
 
         panel1.add(buttonPanel);
 
-		//checks when sort button is clicked
+		// checks when sort button is clicked
 		sortButton.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e){
@@ -251,7 +252,7 @@ public class MovieGraphics extends JFrame{
 			}
 		});
 
-		//checks when review button is clicked
+		// checks when review button is clicked
 		reviewButton.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e){
@@ -266,12 +267,10 @@ public class MovieGraphics extends JFrame{
         setVisible(true);
 	}
 
-
 	public static void main(String[] args) {
 		new MovieGraphics();
 
 	}
-
 }
 
 	

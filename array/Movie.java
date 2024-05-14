@@ -8,15 +8,15 @@ public class Movie{
 
 	public HAT<String> movieList; // the hashed array tree that the filtered & sorted elements will be added to 
 	public ArrayList<MovieInfo> list; // a list of every movie from the data set so that it can be filtered
-	public Hashtable<String, String> reviews; 
 
+	// constructor 
 	public Movie(){
 		this.movieList = new HAT<String>(6); 
 		this.list = new ArrayList<MovieInfo>(); 
-		this.reviews = new Hashtable<String, String>(); 
 
 	}
 
+	// to injest the data, accounting for any additional commas that may be in titles or dates 
 	public void injestData(boolean isToy){
 		String filePath = ""; 
 		if(isToy) {filePath = "array/toyMovies.csv";}
@@ -105,10 +105,12 @@ public class Movie{
 			l.set(j, temp);
 		}
 
+		// if there is no information that fits the particular query 
 		if (l.size() == 0){
 			System.out.println("Nothing fits this query!"); 
 		}
 
+		// if there is information that fits, but not five things, so it will add what it has 
 		if (l.size() < 5){
 			for (int i = 0; i < l.size(); i++){
 				String toAdd = l.get(i).getName(); 
@@ -118,6 +120,7 @@ public class Movie{
 			}
 		}
 
+		// adds the top five rated films that fit the query 
 		else{
 			for (int i = 0; i < 5; i++){
     			String toAdd = l.get(i).getName(); 
@@ -128,6 +131,7 @@ public class Movie{
 		}
 	}
 
+	// method to call outside the main method for use in the MovieGraphics class
 	public void graphics(String insert){
 		this.getList(new ScoreComparator(), insert); 
 		System.out.println(movieList); 

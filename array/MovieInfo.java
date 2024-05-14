@@ -28,7 +28,7 @@ public class MovieInfo{
 		return "{" + movieName + "\n" + rating + ", " + genre + ", " + year + ", " + score + ", " + director + ", " + star + "}"; 
 	}
 
-	// getter methods for each part of a movie we are looking at 
+	// getter methods for each part of a movie we are looking at, to be used when filtering by a query
 	public String getName(){
 		return movieName; 
 	}

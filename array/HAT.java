@@ -16,7 +16,8 @@ public class HAT<T> implements List<T> {
 	private int childPosition; // child array that is attached to each element in the parent
 	private Object[][] parent;
 
-	// specified capacity constructor 
+	// specified capacity constructor
+	// throws an error if the given capacity is not a power of 2
 	public HAT(int capacity){
 		if (capacity % 2 != 0) throw new IllegalArgumentException("capacity is not a power of 2");
 		parent = new Object[capacity][capacity];
